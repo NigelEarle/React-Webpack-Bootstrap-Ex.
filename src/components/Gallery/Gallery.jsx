@@ -8,6 +8,16 @@ class Gallery extends Component{
     this.renderItems = this.renderItems.bind(this)
   }
 
+  componentDidMount(){
+    let links = document.getElementsByClassName('gallery');
+    $('gallery').unbind('click').bind('click', event => {
+      blueimp.Gallery(links, {
+        index: event.currentTarget,
+        event: event
+      });
+    });
+  }
+
   render(){
     return(
       <div className="row">
